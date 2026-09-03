@@ -48,9 +48,9 @@ pub use rope_reader::RopeReader;
 pub use ropey::{self, str_utils, Rope, RopeBuilder, RopeSlice};
 
 // pub use tendril::StrTendril as Tendril;
-pub use smartstring::SmartString;
+pub use compact_str::CompactString;
 
-pub type Tendril = SmartString<smartstring::LazyCompact>;
+pub type Tendril = CompactString;
 
 #[doc(inline)]
 pub use {regex, tree_house::tree_sitter};

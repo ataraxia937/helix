@@ -9,12 +9,12 @@ set -eu
 # Build them manually afterward and move them from /root/.config/helix/runtime/grammars to ./runtime/grammars
 
 podman run --rm \
-  -e HELIX_DEFAULT_RUNTIME=/usr/local/libexec/helix/runtime
+  -e HELIX_DEFAULT_RUNTIME=/usr/local/lib/helix/runtime
   -v ./:/work \
   -w /work rust:latest \
   cargo build --locked --release --package helix-term
-sudo rm -rf /usr/local/libexec/helix
+sudo rm -rf /usr/local/lib/helix
 sudo install -o toolbox -g toolbox -m 755 target/release/hx /usr/local/bin/hx
 sudo install -o toolbox -g toolbox -m 644 contrib/completion/hx.bash /usr/local/share/bash-completion/completions/hx
-sudo rsync -aiP runtime /usr/local/libexec/helix/
-sudo chown -R toolbox:toolbox /usr/local/libexec
+sudo rsync -aiP runtime /usr/local/lib/helix/
+sudo chown -R toolbox:toolbox /usr/local/lib/helix

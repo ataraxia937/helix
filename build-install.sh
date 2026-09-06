@@ -5,14 +5,14 @@ set -eu
 # Updating deps: `cargo update -p <dep>`
 # Running tests: `cargo test --workspace --release`
 
-# Skipping grammar builds: `export HELIX_DISABLE_AUTO_GRAMMAR_BUILD=1`
+# Skipping grammar builds: `-e  HELIX_DISABLE_AUTO_GRAMMAR_BUILD=1`
 # Build them manually afterward and move them from /root/.config/helix/runtime/grammars to ./runtime/grammars
 
 podman run --rm \
-  -e HELIX_DEFAULT_RUNTIME=/usr/local/lib/helix/runtime
-  -v ./:/work \
-  -w /work rust:latest \
-  cargo build --locked --release --package helix-term
+	-e HELIX_DEFAULT_RUNTIME=/usr/local/lib/helix/runtime \
+	-v ./:/work -w /work \
+	rust:latest \
+	cargo build --locked --release --package helix-term
 sudo rm -rf /usr/local/lib/helix
 sudo install -o toolbox -g toolbox -m 755 target/release/hx /usr/local/bin/hx
 sudo install -o toolbox -g toolbox -m 644 contrib/completion/hx.bash /usr/local/share/bash-completion/completions/hx

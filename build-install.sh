@@ -16,5 +16,5 @@ podman run --rm \
 sudo rm -rf /usr/local/lib/helix
 sudo install -o toolbox -g toolbox -m 755 target/release/hx /usr/local/bin/hx
 sudo install -o toolbox -g toolbox -m 644 contrib/completion/hx.bash /usr/local/share/bash-completion/completions/hx
-sudo rsync -aiP runtime /usr/local/lib/helix/
+sudo rsync -aiP --exclude=grammars/sources runtime /usr/local/lib/helix/
 sudo chown -R toolbox:toolbox /usr/local/lib/helix

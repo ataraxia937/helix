@@ -2139,13 +2139,26 @@ impl Document {
 
     // -- LSP methods
 
+    // A document only ever has a language server attached (see
+    // `Editor::launch_language_servers`, which skips pathless/scratch buffers) once it has a
+    // URL, so callers reaching these methods through an active language server are guaranteed
+    // one. `.expect()` documents that invariant instead of panicking with no context if it's
+    // ever violated.
     #[inline]
     pub fn identifier(&self) -> lsp::TextDocumentIdentifier {
-        lsp::TextDocumentIdentifier::new(self.url().unwrap())
+        lsp::TextDocumentIdentifier::new(
+            self.url()
+                .expect("identifier() called on a document with no URL (e.g. a scratch buffer)"),
+        )
     }
 
     pub fn versioned_identifier(&self) -> lsp::VersionedTextDocumentIdentifier {
-        lsp::VersionedTextDocumentIdentifier::new(self.url().unwrap(), self.version)
+        lsp::VersionedTextDocumentIdentifier::new(
+            self.url().expect(
+                "versioned_identifier() called on a document with no URL (e.g. a scratch buffer)",
+            ),
+            self.version,
+        )
     }
 
     pub fn position(

@@ -27,8 +27,8 @@ fn main() {
         format!("{MAJOR}.{minor}.{PATCH}")
     };
     let version: Cow<_> = match &git_hash {
-        Some(git_hash) => format!("{} ({})", calver, &git_hash[..8]).into(),
-        None => calver.into(),
+        Some(git_hash) => format!("{} ({}) +ataraxia937", calver, &git_hash[..8]).into(),
+        None => format!("{calver} +ataraxia937").into(),
     };
 
     println!(

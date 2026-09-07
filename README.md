@@ -9,6 +9,8 @@ I am unlikely to implement any real new features. My changes will likely be limi
 3. Fixing new `clippy` warnings caused by Rust toolchain updates.
 4. Fixing bugs that get in the way of my use of helix. (So far, there are none.)
 
+Basically, I just want to ensure it keeps building, working, and being safe from known vulnerabilities.
+
 Due to the rise in slop issues and PRs, I've chosen to disable those two features. You may use this fork, but I don't want to hear from you about it 😀
 
 <hr>

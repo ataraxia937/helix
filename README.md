@@ -1,3 +1,18 @@
+# ataraxia937 fork purpose
+
+This fork exists due to lack of maintenance upstream. If activity resumes, I will probably drop this fork.
+
+I am unlikely to implement any real new features. My changes will likely be limited to the following:
+
+1. Updating vulnerable dependencies, as identified by `osv-scanner`.
+2. Updating to stay on the current Rust toolchain version.
+3. Fixing new `clippy` warnings caused by Rust toolchain updates.
+4. Fixing bugs that get in the way of my use of helix. (So far, there are none.)
+
+Due to the rise in slop issues and PRs, I've chosen to disable those two features. You may use this fork, but I don't want to hear from you about it 😀
+
+<hr>
+
 <div align="center">
 
 <h1>

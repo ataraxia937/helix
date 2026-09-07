@@ -193,6 +193,7 @@ luau = { command = "luau-lsp", args = ["lsp"] }
 ebnfer = { command = "ebnfer" }
 zizmor = { command = "zizmor", args = ["--lsp"]}
 godot = { command = "ncat", args = ["127.0.0.1", "6005"] }
+tsgo = { command = "tsc", args = ["--lsp", "--stdio"] }
 
 [language-server.actions-language-server]
 command = "actions-languageserver"
@@ -1001,7 +1002,7 @@ shebangs = ["node"]
 roots = [ "package.json", "jsconfig.json" ]
 comment-token = "//"
 block-comment-tokens = { start = "/*", end = "*/" }
-language-servers = [ "typescript-language-server" ]
+language-servers = [ "tsgo", "typescript-language-server" ]
 indent = { tab-width = 2, unit = "  " }
 
 [language.debugger]
@@ -1030,7 +1031,7 @@ file-types = ["jsx"]
 roots = [ "package.json", "jsconfig.json" ]
 comment-token = "//"
 block-comment-tokens = { start = "/*", end = "*/" }
-language-servers = [ "typescript-language-server" ]
+language-servers = [ "tsgo", "typescript-language-server" ]
 indent = { tab-width = 2, unit = "  " }
 grammar = "javascript"
 
@@ -1044,7 +1045,7 @@ shebangs = ["deno", "bun", "ts-node"]
 roots = [ "package.json", "tsconfig.json" ]
 comment-token = "//"
 block-comment-tokens = { start = "/*", end = "*/" }
-language-servers = [ "typescript-language-server" ]
+language-servers = [ "tsgo", "typescript-language-server" ]
 indent = { tab-width = 2, unit = "  " }
 
 [[grammar]]
@@ -1077,7 +1078,7 @@ file-types = ["tsx"]
 roots = [ "package.json", "tsconfig.json" ]
 comment-token = "//"
 block-comment-tokens = { start = "/*", end = "*/" }
-language-servers = [ "typescript-language-server" ]
+language-servers = [ "tsgo", "typescript-language-server" ]
 indent = { tab-width = 2, unit = "  " }
 
 [[grammar]]
